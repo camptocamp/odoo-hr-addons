@@ -17,8 +17,9 @@ env:
 
   matrix:
   - LINT_CHECK="1"
-  - TESTS="1" ODOO_REPO="OCA/OCB"
-  - TESTS="1" ODOO_REPO="odoo/odoo"
+  # `web_gantt_public_holidays` depends on `web_gantt@enterprise`, thus can't be tested
+  - TESTS="1" ODOO_REPO="OCA/OCB" EXCLUDE="web_gantt_public_holidays"
+  - TESTS="1" ODOO_REPO="odoo/odoo" EXCLUDE="web_gantt_public_holidays"
 
 install:
   - git clone --depth=1 https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
